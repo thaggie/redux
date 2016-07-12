@@ -1,25 +1,23 @@
 import * as types from '../constants/ActionTypes'
+import rsa from 'react-safe-actions'
 
-export function addTodo(text) {
-  return { type: types.ADD_TODO, text }
-}
+export const addTodo = rsa.create(types.ADD_TODO, {
+  text: rsa.types.string.isRequired
+})
 
-export function deleteTodo(id) {
-  return { type: types.DELETE_TODO, id }
-}
+export const deleteTodo = rsa.create(types.DELETE_TODO, {
+  id: rsa.types.number.isRequired
+})
 
-export function editTodo(id, text) {
-  return { type: types.EDIT_TODO, id, text }
-}
+export const editTodo = rsa.create(types.EDIT_TODO, {
+  id: rsa.types.number.isRequired,
+  text: rsa.types.string.isRequired
+})
 
-export function completeTodo(id) {
-  return { type: types.COMPLETE_TODO, id }
-}
+export const completeTodo = rsa.create(types.COMPLETE_TODO, {
+  id: rsa.types.number.isRequired
+})
 
-export function completeAll() {
-  return { type: types.COMPLETE_ALL }
-}
+export const completeAll = rsa.create(types.COMPLETE_ALL)
 
-export function clearCompleted() {
-  return { type: types.CLEAR_COMPLETED }
-}
+export const clearCompleted = rsa.create(types.CLEAR_COMPLETED)
