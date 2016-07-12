@@ -1,25 +1,24 @@
 import * as types from '../constants/ActionTypes'
+import PropTypes from 'prop-types'
+import createAction from 'react-safe-actions'
 
-export function addTodo(text) {
-  return { type: types.ADD_TODO, text }
-}
+export const addTodo = createAction(types.ADD_TODO, {
+  text: PropTypes.string.isRequired
+})
 
-export function deleteTodo(id) {
-  return { type: types.DELETE_TODO, id }
-}
+export const deleteTodo = createAction(types.DELETE_TODO, {
+  id: PropTypes.number.isRequired
+})
 
-export function editTodo(id, text) {
-  return { type: types.EDIT_TODO, id, text }
-}
+export const editTodo = createAction(types.EDIT_TODO, {
+  id: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired
+})
 
-export function completeTodo(id) {
-  return { type: types.COMPLETE_TODO, id }
-}
+export const completeTodo = createAction(types.COMPLETE_TODO, {
+  id: PropTypes.number.isRequired
+})
 
-export function completeAll() {
-  return { type: types.COMPLETE_ALL }
-}
+export const completeAll = createAction(types.COMPLETE_ALL)
 
-export function clearCompleted() {
-  return { type: types.CLEAR_COMPLETED }
-}
+export const clearCompleted = createAction(types.CLEAR_COMPLETED)

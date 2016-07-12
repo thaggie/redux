@@ -19,7 +19,7 @@ describe('todos reducer', () => {
     expect(
       todos([], {
         type: types.ADD_TODO,
-        text: 'Run the tests'
+        payload: {text: 'Run the tests'}
       })
     ).toEqual([
       {
@@ -38,7 +38,7 @@ describe('todos reducer', () => {
         }
       ], {
         type: types.ADD_TODO,
-        text: 'Run the tests'
+        payload: {text: 'Run the tests'}
       })
     ).toEqual([
       {
@@ -65,7 +65,7 @@ describe('todos reducer', () => {
         }
       ], {
         type: types.ADD_TODO,
-        text: 'Fix the tests'
+        payload: {text: 'Fix the tests'}
       })
     ).toEqual([
       {
@@ -98,7 +98,7 @@ describe('todos reducer', () => {
         }
       ], {
         type: types.DELETE_TODO,
-        id: 1
+        payload: {id: 1}
       })
     ).toEqual([
       {
@@ -123,8 +123,7 @@ describe('todos reducer', () => {
         }
       ], {
         type: types.EDIT_TODO,
-        text: 'Fix the tests',
-        id: 1
+        payload: {text: 'Fix the tests', id: 1}        
       })
     ).toEqual([
       {
@@ -153,7 +152,7 @@ describe('todos reducer', () => {
         }
       ], {
         type: types.COMPLETE_TODO,
-        id: 1
+        payload: {id: 1}
       })
     ).toEqual([
       {
@@ -252,12 +251,12 @@ describe('todos reducer', () => {
       [
         {
           type: types.COMPLETE_TODO,
-          id: 0
+          payload: {id: 0}
         }, {
           type: types.CLEAR_COMPLETED
         }, {
           type: types.ADD_TODO,
-          text: 'Write more tests'
+          payload: {text: 'Write more tests'}
         }
       ].reduce(todos, [
         {
